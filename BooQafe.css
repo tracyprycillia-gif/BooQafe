@@ -1,0 +1,1624 @@
+* {
+    /* untuk reset margin dan padding awal secara global */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+article .container-menu menu {
+    width: 100%;
+    height: 2px;
+    padding: 25px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 1000;
+    background-color: white;
+}
+
+article .container-menu menu a {
+    color: #191970;
+    text-decoration: none;
+    /* untuk menghilangkan underline */
+    font-size: 16px;
+    margin: 0 60px 0 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container-menu menu a.active:hover {
+    color: black;
+    transition: 1s;
+}
+
+article .container-menu menu img {
+    margin-right: 400px;
+}
+
+.container1 {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+article .container1 .back img {
+    width: 100%;
+    height: 550px;
+    position: absolute;
+    z-index: -2;
+    /* agar posisi gambar dibawah text dan overlay */
+    object-fit: cover;
+    /* agar gambar memenuhi semua tempat container 1 */
+}
+
+/* ini untuk overlay, meberikan kesan gelap (pseudo)*/
+article .container1 .back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* menyesuaikan opacity untuk kegelapan gambar */
+    z-index: -1;
+}
+
+article .container1 .kiri {
+    width: 868px;
+    height: 300px;
+    text-align: justify;
+    float: left;
+    margin-top: 10%;
+    position: relative;
+}
+
+article .container1 .kiri h2 {
+    text-align: left;
+    font-size: 22px;
+    padding: 0 90px 0 50px;
+    margin: 10px 0 10px 0;
+    color: #F5F5DC;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container1 .kiri h1 {
+    text-align: left;
+    font-size: 50px;
+    padding: 0 210px 0 50px;
+    margin: 8px 0 8px 0;
+    color: white;
+    font-family: Georgia;
+}
+
+article .container1 .kiri p {
+    font-size: 16px;
+    margin: 10px 0 20px 0;
+    padding: 0 150px 0 50px;
+    text-align: left;
+    color: #708090;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container1 .kanan {
+    width: 380px;
+    overflow: hidden;
+    position: relative;
+}
+
+article .container1 .kanan .playButton{
+    width: 60px;
+    height: 60px;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    margin: 55% 10% 0 55%;
+    cursor: pointer;
+}
+
+article .container1 .kanan .playButton::before {
+    content: '';
+    position: absolute;
+    top: 33%;
+    left: 43%;
+    /* top, left, bottom dan right untuk posisi, kalau margin untuk elemen */
+    width: 0;
+    height: 0;
+    display: inline-block;
+    /* bagian bawah ini untuk membuat segitga */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #191970;
+}
+
+article .container1 .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* top dan left dipakai untuk position */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+    /* semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* agar video/modal muncul ketika diklik */
+article .container1 .modal:target {
+    display: flex;
+}
+
+article .container1 .modal-content {
+    position: relative;
+    padding: 0;
+    width: 50%;
+    height: 60%;
+}
+
+/* iframe */
+article .container1 .modal-content iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: none;
+    padding: 5%;
+}
+
+/* tombol tutup */
+article .container1 .close {
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: system-ui;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    /* kalau ga make video nya ga ada sinyal buat muter */
+}
+
+/* container 1 bawah */
+article .container1 .bawah {
+    width: 1100px;
+    height: 140px;
+    float: left;
+    margin-top: 20px;
+    position: relative;
+    margin-left: 6%;
+}
+
+.container1 .bawah .kotak1 {
+    width: 210px;
+    height: 50px;
+    margin-right: 1%;
+    padding: 5px 5px 5px 5px;
+    float: left;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* buat ujung persegi jadi bulat */
+    background-color: #F5F5DC;
+    color: #191970;
+}
+
+.container1 .bawah .kotak2 {
+    width: 150px;
+    height: 50px;
+    float: left;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #191970;
+    margin: 0;
+    color: #F5F5DC;
+}
+
+.container1 .bawah h1 {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 4%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container1 .bawah form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #F5F5DC;
+    height: 80%;
+    width: 1100px;
+    color: #191970;
+    font-weight: bold;
+}
+
+article .container1 .bawah .itemForm,
+article .container1 .bawah .pesan,
+article .container1 .bawah .waktu,
+article .container1 .bawah .size {
+    text-align: left;
+    border-right: 1px solid rgba(128, 128, 128, 0.402);
+    width: 20%;
+    height: auto;
+    padding-left: 2%;
+    box-sizing: border-box;
+    margin-top: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container1 .bawah .search {
+    text-align: left;
+    width: 20%;
+    padding-left: 2%;
+    margin-top: 0;
+    display: block;
+    font-size: 20px;
+    background-color: #191970;
+    /* Warna biru */
+    color: beige;
+    cursor: pointer;
+}
+
+article .container1 .bawah .itemForm input[type="text"] {
+    width: 85%;
+    padding: 7px;
+    margin: 19px 0;
+    /* atasBawah  kananKiri*/
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container1 .bawah .pesan input[type="date"] {
+    width: 85%;
+    padding: 7px;
+    /* untuk kotak */
+    margin: 17.5px 4px;
+    /* atasBawah  kananKiri*/
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container1 .bawah .waktu input[type="time"] {
+    width: 85%;
+    padding: 7px;
+    /* untuk kotak */
+    margin: 16.5px 0;
+    /* atasBawah  kananKiri*/
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container1 .bawah .size select {
+    width: 85%;
+    padding: 7px;
+    margin: 20px 0;
+    /* atasBawah  kananKiri*/
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container1 .bawah .search h3{
+    margin: 20% 0;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container1 .bawah label {
+    font-size: 16px;
+    display: block;
+    margin-top: 20px;
+    /* jarak antara label dan kotaknya */
+    margin-left: 2px;
+}
+
+/* container 2 */
+article .container2 {
+    width: auto;
+    height: 700px;
+    overflow: hidden;
+    display: flex;
+    /* agar layout jadi horizontal */
+}
+
+article .container2 .kiri {
+    width: 650px;
+    height: 700px;
+    margin-top: 20px;
+    margin-left: 1%;
+    text-align: left;
+}
+
+article .container2 .kiri h2 {
+    text-align: left;
+    font-size: 22px;
+    padding-top: 25%;
+    padding-left: 5%;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container2 .kiri h1 {
+    text-align: left;
+    font-size: 50px;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-right: 5%;
+    color: #191970;
+    font-family: Georgia;
+}
+
+article .container2 .kiri p {
+    font-size: 16px;
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-right: 8%;
+    text-align: left;
+    color: #708090;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container2 .kiri h3{
+    background-color: white;
+    border-radius: 5px;
+    width: 145px;
+    height: 40px;
+    margin-top: 10%;
+    padding: 1.5%;
+    margin-left: 5%;
+    float: left;
+}
+
+article .container2 .kiri .playButton{
+    width: 60px;
+    height: 60px;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    float: left;
+    margin-left: 10%;
+    margin-top: 8%;
+}
+
+article .container2 .kiri .playButton::before {
+    content: '';
+    position: absolute;
+    top: 33%;
+    left: 43%;
+    /* top, left, bottom dan right untuk posisi, kalau margin untuk elemen */
+    width: 0;
+    height: 0;
+    display: inline-block;
+    /* bagian bawah ini untuk membuat segitga */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #191970;
+}
+
+article .container2 .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* top dan left dipakai untuk position */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+    /* semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* agar video/modal muncul ketika diklik */
+article .container2 .modal:target {
+    display: flex;
+}
+
+article .container2 .modal-content {
+    position: relative;
+    padding: 0;
+    width: 50%;
+    height: 60%;
+}
+
+/* iframe */
+article .container2 .modal-content iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: none;
+    padding: 5%;
+}
+
+/* tombol tutup */
+article .container2 .close {
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: system-ui;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    /* kalau ga make video nya ga ada sinyal buat muter */
+}
+
+article .container2 .kanan {
+    width: 550px;
+    height: 700px;
+    margin-top: 30px;
+    margin-right: 1%;
+    margin-left: 1%;
+    text-align: left;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+article .container2 .kanan .atas{
+    width: 550px;
+    height: 300px;
+}
+
+article .container2 .kanan .atas img{
+    width: 550px;
+    height: 300px;
+    position: absolute;
+    z-index: 1;
+}
+
+article .container2 .kanan .atas h5{
+    position: absolute;
+    margin-top: 22%;
+    margin-left: 10px;
+    background-color: #F5F5DC;
+    color: #A0522D;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 3;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container2 .kanan .bawah{
+    width: 550px;
+    height: 400px;
+}
+
+article .container2 .kanan .bawah .text{
+    height: 20%;
+}
+
+article .container2 .kanan .bawah .text h4{
+    margin-top: 5%;
+    float: left;
+    margin-left: 5%;
+    font-size: 30px;
+}
+
+article .container2 .kanan .bawah .text .star{
+    margin-top: 4%;
+    float: left;
+    margin-left: 40%;
+    font-size: 30px;
+}
+
+article .container2 .kanan .bawah .gambar{
+    height: 10%;
+    margin-left: 5%;
+}
+
+article .container2 .kanan .bawah .gambar img{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 10%;
+}
+
+article .container2 .kanan .bawah .gambar .kotak1{
+    float: left;
+    width: 150px;
+    height: 40px;
+    padding-right: 10%;
+    border-right: 1px solid rgba(119, 136, 153, 0.475);
+}
+
+article .container2 .kanan .bawah .gambar p{
+    margin-top: 8%;
+}
+
+article .container2 .kanan .bawah .gambar .kotak2{
+    float: left;
+    width: 150px;
+    height: 40px;
+    border-right: 1px solid rgba(119, 136, 153, 0.475);
+}
+
+article .container2 .kanan .bawah .gambar .kotak3{
+    float: left;
+    width: 150px;
+    height: 40px;
+}
+
+article .container2 .kanan .bawah .keterangan{
+    height: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+} 
+
+article .container2 .kanan .bawah .keterangan h3{
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 3%;
+    text-align: justify;
+}
+
+article .container2 .kanan .bawah .keterangan h5{
+    float: left;
+    background-color: #F5F5DC;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 2%;
+    border-radius: 3px;
+    margin-top: 2%;
+    font-family: 'Times New Roman', Times, serif;
+    color: #191970;
+}
+
+article .container2 .kanan .bawah .keterangan h6{
+    float: left;
+    background-color: #F5F5DC;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 3px;
+    padding-top: 2%;
+    margin-top: 2%;
+    margin-left: 35%;
+    color: #191970;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* container 3 */
+article .container3 {
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    margin: 0;
+    margin-top: 5%;
+    flex-wrap: wrap;
+    /* agar teks ke samping */
+    position: relative;
+}
+
+article .container3 .text {
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    margin-top: 3%;
+}
+
+article .container3 .text h2 {
+    font-size: 22px;
+    color: #A0522D;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container3 .text h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 36px;
+    margin-top: 1%;
+}
+
+article .container3 .kotak1,
+article .container3 .kotak2,
+article .container3 .kotak3,
+article .container3 .kotak4 {
+    position: relative;
+    display: inline-block;
+    width: 280px;
+    height: 350px;
+    margin-top: 4%;
+    margin-left: 2.3%;
+    transition: 0.3s;
+}
+
+article .container3 .kotak1:hover,
+article .container3 .kotak2:hover,
+article .container3 .kotak3:hover,
+article .container3 .kotak4:hover {
+    transform: translateY(-30px);
+}
+
+article .container3 .kotak1 img,
+article .container3 .kotak2 img,
+article .container3 .kotak3 img,
+article .container3 .kotak4 img {
+    width: 280px;
+    height: 350px;
+    float: left;
+}
+
+article .container3 .kotak1 h5,
+article .container3 .kotak2 h5,
+article .container3 .kotak3 h5,
+article .container3 .kotak4 h5 {
+    background-color: #A0522D;
+    color: #F5F5DC;
+    position: absolute;
+    left: 2%;
+    z-index: 2;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container3 .kotak1 h6,
+article .container3 .kotak2 h6,
+article .container3 .kotak3 h6,
+article .container3 .kotak4 h6 {
+    background-color: #A0522D;
+    color: #F5F5DC;
+    position: absolute;
+    margin-top: 75%;
+    left: 76.5%;
+    z-index: 2;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container3 .kotak1:hover h6,
+article .container3 .kotak2:hover h6,
+article .container3 .kotak3:hover h6,
+article .container3 .kotak4:hover h6 {
+    transform: translate(-18%, 0%);
+    /* geser lebih ke kiri, X (horizontal), Y(vertical) */
+    width: 80.2px;
+}
+
+article .container3 .back img {
+    width: 100%;
+    height: 650px;
+    position: absolute;
+    object-fit: cover;
+    /* agar gambar memenuhi semua tempat container 3 */
+    top: 0;
+    left: 0;
+    z-index: -3;
+    /* agar posisi gambar dibawah text dan overlay */
+}
+
+/* ini untuk overlay, meberikan kesan gelap (pseudo)*/
+article .container3 .back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 650px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* menyesuaikan opacity untuk kegelapan gambar */
+    z-index: -2;
+}
+
+article .container3 .circ {
+    display: flex;
+    /* biar horizontal*/
+    justify-content: center;
+    /* agar tombol ke tengah dan sejajar */
+    gap: 30px;
+    /* jarak antar tombol */
+    margin-top: 5%;
+}
+
+article .container3 .circ .button,
+article .container3 .circ .button2 {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+/* container 4 */
+article .container4 {
+    width: 100%;
+    height: 1060px;
+    overflow: hidden;
+    margin-top: 5%;
+    flex-wrap: wrap;
+    /* agar teks ke samping */
+    position: relative;
+}
+
+article .container4 .atas .kotak1,
+article .container4 .atas .kotak2,
+article .container4 .atas .kotak3,
+article .container4 .bawah .kotak1,
+article .container4 .bawah .kotak2,
+article .container4 .bawah .kotak3 {
+    width: 355px;
+    height: 470px;
+    position: relative;
+    display: inline-block;
+    margin-left: 4%;
+    margin-top: 0;
+    vertical-align: top;
+}
+
+article .container4 .atas .gambar img,
+article .container4 .bawah .gambar img {
+    width: 355px;
+    height: 330px;
+    position: absolute;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+article .container4 .atas .gambar img:hover,
+article .container4 .bawah .gambar img:hover {
+    transform: scale(1.2);
+    position: relative;
+    z-index: 5;
+}
+
+article .container4 .atas h5,
+article .container4 .bawah h5 {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: white;
+    color: #A0522D;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 3;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container4 .judul {
+    text-align: center;
+    margin: 2% 0;
+}
+
+article .container4 .judul h1 {
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+
+article .container4 .judul h2 {
+    font-size: 22px;
+    color: #A0522D;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container4 .atas .text,
+article .container4 .bawah .text {
+    width: 320px;
+    height: 170px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    margin-top: 70%;
+    margin-left: 5%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    /* Bayangan digeser 0px ke kanan, 5px ke bawah, 
+    Blur 10px, Warna hitam transparan */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container4 .atas h1,
+article .container4 .bawah h1 {
+    font-size: 18px;
+    padding: 1% 5% 0 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container4 .atas h4,
+article .container4 .bawah h4 {
+    font-size: 12px;
+    padding: 5% 5% 0 5%;
+    color: #A0522D;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container4 .atas h3,
+article .container4 .bawah h3 {
+    font-size: 12px;
+    padding: 1% 5% 0 5%;
+    text-align: justify;
+    color: #708090;
+}
+
+article .container4 .atas .text img,
+article .container4 .bawah .text img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 1% 3%;               
+    /* hilangkan jarak default */
+}
+
+article .container4 .atas .text p,
+article .container4 .bawah .text p {
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    margin-top: 5%;
+    margin-right: 10%;
+    float: left;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* container 5 */
+article .container5 {
+    width: 100%;
+    overflow: hidden;
+}
+
+article .container5 img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+    margin-top: 5%;
+}
+
+article .container5 .video .playButton{
+    width: 60px;
+    height: 60px;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    margin-top: 18%;
+    margin-left: 50%;
+    cursor: pointer;
+}
+
+article .container5 .video .playButton::before {
+    content: '';
+    position: absolute;
+    margin-top: 33%;
+    margin-left: 43%;
+    width: 0;
+    height: 0;
+    /* bagian bawah ini untuk membuat segitga */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #191970;
+}
+
+article .container5 .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* top dan left dipakai untuk position */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+    /* semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* agar video/modal muncul ketika diklik */
+article .container5 .modal:target {
+    display: flex;
+}
+
+article .container5 .modal-content {
+    position: relative;
+    padding: 0;
+    width: 50%;
+    height: 60%;
+}
+
+/* iframe */
+article .container5 .modal-content iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: none;
+    padding: 5%;
+}
+
+/* tombol tutup */
+article .container5 .close {
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: system-ui;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    /* kalau ga make video nya ga ada sinyal buat muter */
+}
+
+article .container5 .bawah {
+    width: 100%;
+    height: 840px;
+    display: flex;
+    z-index: 2;
+    position: relative;
+}
+
+article .container5 .bawah .gambar {
+    position: relative;
+    z-index: 5;
+    width: 500px;
+    height: 750px;
+    margin-top: 5%;
+    margin-left: 10%;
+    background-color: white;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+article .container5 .bawah .gambar img {
+    position: relative;
+    z-index: 4;
+    width: 450px;
+    height: 710px;
+    margin: 5%;
+}
+
+article .container5 .about {
+    max-width: 500px;
+    margin-top: 22%;
+    margin-left: 2%;
+}
+
+article .container5 .bawah .about h4 {
+    color: #191970;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+article .container5 .bawah .about h1 {
+    font-size: 36px;
+    margin: 2% 0;
+    color: #A0522D;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container5 .bawah .about p {
+    margin-bottom: 4%;
+    color: #555;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container5 .bawah .about h3 {
+    background-color:#191970;
+    font-size: 16px;
+    width: 225px;
+    height: 50px;
+    padding: 3%;
+    border-radius: 3%;
+    cursor: pointer;
+    color: #F5F5F5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* container 6 */
+article .container6 {
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+article .container6 .star{
+    color: #191970;
+    margin: 5%;
+    font-size: 20px;
+}
+
+article .container6 .back img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* ini untuk overlay, meberikan kesan gelap (pseudo)*/
+article .container6 .back::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    /* Masih di bawah kotak */
+}
+
+article .container6 .judul {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 5;
+}
+
+article .container6 .judul h1 {
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container6 .judul h2 {
+    font-size: 22px;
+    margin-bottom: 0.4%;
+    color: #A0522D;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container6 .kotak {
+    display: flex;
+    /* flex agar kotak sejajar */
+    justify-content: center;
+    /* buat kotak ke tengah horizontal */
+    width: 100%;
+}
+
+article .container6 .kotak1,
+article .container6 .kotak2,
+article .container6 .kotak3 {
+    width: 300px;
+    height: 300px;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    display: inline-block;
+    position: relative;
+    z-index: 5;
+    background-color: white;
+    border-radius: 5%;
+}
+
+article .container6 p {
+    margin: 5%;
+    font-size: 16px;
+    color: #708090;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container6 .kotak1 .orang,
+article .container6 .kotak2 .orang,
+article .container6 .kotak3 .orang {
+    display: flex;
+    margin: 0;
+}
+
+article .container6 .kotak1 .orang img,
+article .container6 .kotak2 .orang img,
+article .container6 .kotak3 .orang img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 3%;
+    margin: 0 5%;
+}
+
+article .container6 .orang .text h5 {
+    margin-top: 20%;
+    font-size: 14px;
+    color: #A0522D;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container6 .orang .text h6 {
+    margin-top: 2%;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container6 .circ {
+    display: flex;
+    /* biar horizontal*/
+    justify-content: center;
+    /* agar tombol ke tengah dan sejajar */
+    gap: 30px;
+    /* jarak antar tombol */
+}
+
+article .container6 .circ .button,
+article .container6 .circ .button2,
+article .container6 .circ .button3,
+article .container6 .circ .button4,
+article .container6 .circ .button5 {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+article .container6 .circ .button:hover,
+article .container6 .circ .button2:hover,
+article .container6 .circ .button3:hover,
+article .container6 .circ .button4:hover,
+article .container6 .circ .button5:hover {
+    background-color: #A0522D;
+}
+
+/* container 7 */
+article .container7 {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    margin: 0;
+    margin-top: 5%;
+    flex-wrap: wrap;
+    /* agar teks ke samping */
+    display: flex;
+}
+
+article .container7 .judul {
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+article .container7 .judul h1 {
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container7 .judul h2 {
+    font-size: 22px;
+    margin-bottom: 0.4%;
+    color: #A0522D;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container7 .kotak1,
+article .container7 .kotak2,
+article .container7 .kotak3 {
+    width: 355px;
+    height: 500px;
+    margin-left: 4%;
+    position: relative;
+    margin-top: 0%;
+}
+
+article .container7 img {
+    width: 355px;
+    height: 340px;
+    float: left;
+}
+
+article .container7 .text {
+    position: absolute;
+    width: 320px;
+    height: 150px;
+    z-index: 10;
+    background-color: whitesmoke;
+    margin-top: 80%;
+    margin-left: 5%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    /* Bayangan digeser 4px ke kanan, 4x ke bawah, 
+    Blur 10px, Warna hitam transparan */
+}
+
+article .container7 .text h1 {
+    font-size: 22px;
+    padding: 5% 5% 0 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container7 .text p {
+    cursor: pointer;
+    width: fit-content;
+    padding: 4% 4.8%;
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 15px;
+    float: left;
+    border-radius: 2px;
+    background-color: #191970;
+    color: #F5F5DC;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .container7 .text p:hover {
+    background-color: #708090;
+    color:#000;
+    transition: 2s;
+}
+
+article .container7 h5 {
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 3%;
+    background-color: #A0522D;
+    color:#F5F5F5;
+    padding: 8px 15px;
+    font-weight: bold;
+    z-index: 5;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* banner */
+article .banner {
+    width: 100%;
+    height: 550px;
+}
+
+article .banner img {
+    width: 1000px;
+    height: 400px;
+    margin: 6% 10%;
+    position: absolute;
+    z-index: -2;
+}
+
+article .banner::before {
+    content: '';
+    position: absolute;
+    margin: 6% 10%;
+    width: 1000px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* menyesuaikan opacity untuk kegelapan gambar */
+    z-index: -1;
+}
+
+article .banner .text {
+    width: 1000px;
+    height: 400px;
+    position: relative;
+    padding-top: 15%;
+    padding-left: 20%;
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+
+article .banner .text h5 {
+    font-size: 32px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .banner .text h6 {
+    font-size: 18px;
+    margin: 3% 0;
+    font-weight: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .banner .text p {
+    font-size: 20px;
+    background-color: #191970;
+    color: #F5F5DC;
+    width: 300px;
+    height: 40px;
+    padding: 1%;
+    margin-left: 29%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    margin: 0;
+    margin-top: 3%;
+    flex-wrap: wrap;
+    /* agar teks ke samping */
+    position: relative;
+}
+
+footer .back img {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    object-fit: cover;
+    position: absolute;
+    z-index: -3;
+}
+
+footer .atas {
+    display: flex;
+    /* agar gambar jdi horizontal, kalau block, vertikal, satu per satu*/
+    position: relative;
+    z-index: 1;
+    margin-bottom: 3%;
+    justify-content: space-between;
+}
+
+footer .atas .kotak1,
+footer .atas .kotak2,
+footer .atas .kotak3 {
+    width: 293px;
+    height: 350px;
+    padding-left: 2%;
+    border-right: 1px solid rgba(119, 136, 153, 0.475);
+}
+
+footer .atas .kotak4 {
+    width: 293px;
+    height: 350px;
+    padding-right: 3%;
+}
+
+footer .atas .kotak1 .gambar {
+    width: 100%;
+}
+
+footer .atas .kotak1 .gambar img {
+    width: 40px;
+    height: 40px;
+    margin-left: 8%;
+    margin-top: 3%;
+}
+
+footer .atas .kotak4 .baris1,
+footer .atas .kotak4 .baris2,
+footer .atas .kotak4 .baris3 {
+    display: flex;
+    margin-bottom: 5%;
+}
+
+footer .atas .kotak4 img {
+    width: 40px;
+    height: 40px;
+}
+
+footer .atas .kotak4 .baris2 p {
+    margin-top: 3%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer .atas .kotak4 .baris3 p {
+    margin-top: 4%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer .atas h1 {
+    font-size: 21px;
+    padding: 10%;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+footer .atas p {
+    text-align: justify;
+    font-size: 14px;
+    margin-bottom: 3%;
+    padding: 0 10%;
+    color: black;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* menyesuaikan opacity untuk kegelapan gambar */
+    z-index: -2;
+}
+
+footer .bawah h6 {
+    float: left;
+    text-align: left;
+    font-size: 18px;
+    margin-left: 5%;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+footer .bawah p {
+    float: left;
+    text-align: right;
+    font-size: 18px;
+    margin-left: 60%;
+    margin-right: 10%;
+    padding-bottom: 20%;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* untuk css contact */
+.contact {
+    width: 100%;
+    height: 600px;
+    display: flex;
+}
+
+.contact .kiri {
+    position: relative;
+    width: 45%;
+    left: 10%;
+}
+
+.contact .kiri img {
+    width: 450px;
+    height: 500px;
+    margin-left: 10%;
+    padding-top: 10%;
+    opacity: 0.2;
+    z-index: 1;
+    position: relative;
+    transition: 0.5s ease;
+}
+
+.contact .kiri img:hover{opacity: 1.0;}
+
+.contact .kiri .keterangan {
+    display: none;
+    padding: 10px; 
+    text-align: center; 
+    position: absolute; 
+    background-color: #F5F5DC; 
+    color: #191970;
+    font-size: 18px;
+    top: 65%;
+    left: 24%;
+    z-index: 2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.contact .kiri img:hover + .keterangan{display: block;}
+/* '+' adalah kombinator selector 
+artinya pilih b(keterangan) yg langsung berada setelah elemen a (img)*/
+
+.contact .kanan {
+    padding-top: 8%;
+    width: 600px;
+    border-radius: 25px;
+    padding-left: 10%;
+    margin-right: 10%;
+}
+
+.contact .kanan .itemFORM input.inputText {
+    font-size: 15px;
+    width: 100%;
+    height: 35px;
+    margin-right: 5px;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.contact .kanan .itemFORM textarea {
+    font-size: 15px;
+    width: 100%;
+    height: 150px;
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.contact .kanan h1 {
+    width: 190px;
+    height: 45px;
+    padding: 10px 13px;
+    margin-top: 5%;
+    font-size: 22px;
+    background-color: #191970;
+    color: #F5F5DC;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .container1 .front {
+    width: 868px;
+    height: 300px;
+    float: left;
+    margin-top: 26%;
+    margin-left: 12%;
+    text-align: center;
+    position: relative;
+}
+
+article .container1 .front a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #F5F5F5;
+    margin-left: 5%;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+article .container1 .front h1 {
+    font-size: 78px;
+    color: #F5F5F5;
+    margin-left: 4%;
+    margin-top: 3%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+article .ckotak {
+    width: 100%;
+    height: 300px;
+}
+
+article .ckotak .kotak1,
+article .ckotak .kotak2,
+article .ckotak .kotak3,
+article .ckotak .kotak4 {
+    float: left;
+    width: 280px;
+    height: 300px;
+    background-color: white;
+    margin-left: 2.3%;
+    margin-top: 0;
+}
+
+article .ckotak img {
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    margin-left: 23%;
+    margin-top: 10%;
+}
+
+article .ckotak p {
+    text-align: center;
+    margin-top: 3%;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article .ckotak h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 3%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
