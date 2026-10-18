@@ -1,9 +1,9 @@
 # BooQafé: Book-Themed Café 
 Website A multi-section website for **BooQafé**, a fictional café where coffee meets books. Built with **HTML and CSS** (no frameworks, no JavaScript) as the midterm project for the **Web Development** course, Information Systems, Tarumanagara University, September to October 2025. 
 
-**Live demo:** https://[username].github.io/booqafe-website/ 
+**Live demo:** [https://tracyprycillia-gif.github.io/BooQafe/]
 
-![BooQafé home page](screenshots/home.png) 
+![BooQafé home page](<img width="949" height="436" alt="Screenshot 2026-10-19 021718" src="https://github.com/user-attachments/assets/f9d9d3e1-5e0a-4a5d-9581-4e5989b32ab3" />) 
 
 ## Pages and Sections 
 
